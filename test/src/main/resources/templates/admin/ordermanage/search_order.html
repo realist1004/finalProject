@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+     #wrap {
+        padding: 0 20px 77px;
+    }
+    .section {
+        margin: 0 0 30px;
+        padding: 30px 20px;
+        border-radius: 2px;
+        border: 1px solid #ddd;
+        background: #fff;
+        -webkit-box-shadow: 0 2px 1px 0 rgba(205,211,222,1);
+        -moz-box-shadow: 0 2px 1px 0 rgba(205,211,222,1);
+        box-shadow: 0 2px 1px 0 rgba(205,211,222,1);
+    }
+</style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+ <div id="wrap">
+     <h1>상품 검색</h1>
+     <br>
+     <div class="section" id="QA_search1">
+         <form method="post" action="#">
+        <div >
+            <table class="table table-bordered" >
+                <tbody>
+                    <tr>
+                        <th>검색어</th>
+                        <td>
+                            <select name="SearchKey" id="eSearchKey" class="fSelect">
+                                <option value="product_name" selected="selected">상품명</option>
+                                <option value="product_code">상품코드</option>
+                                <option value="item_code">품목코드</option>
+                                <option value="product_tag">상품태그</option>
+                                <option>--------------</option>
+                                <option value="manufacturer_name">제조사</option>
+                                <option value="brand_name">브랜드</option>
+                            </select>
+                            <input type="text" class="fText" name="SearchValue" id="eSearchValue" style="width: 240px;">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+         <div align="center">
+             <input type="submit" class="btn btn-primary" value="검색">
+         </div>
+         </form>
+         <br>
+         <div class="section" id="QA_search2">
+            <div class="mBoard">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>상품코드</th>
+                            <th>상품명</th>
+                            <th>옵션</th>
+                            <th>선택</th>
+                        </tr>
+                    </thead>
+                    <tbody class="center">
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="4" align="center">
+                                <h3></h3>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+         </div>
+     </div>
+     <div align="center">
+         <input class="btn btn-info" onclick="window.close();" value="닫기">
+     </div>
+ </div>
+</body>
+</html>

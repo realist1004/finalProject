@@ -1,0 +1,155 @@
+/* =============================주문처리 현황==================================== */
+#wrap{
+    font: 0.9em Verdana,Dotum,AppleGothic,sans-serif;
+    color: #353535;
+    padding: 0;
+    position: relative;
+    width: 80%;
+    margin: 27px auto 0;
+}
+
+#container{
+    margin: 0 auto;
+}
+
+#content{
+    margin: 0 auto;
+}
+
+.titleArea{
+    min-height: 30px;
+    margin: 10px 0 20px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.titleArea h2{
+    margin: 0;
+    display: inline-block;
+    padding: 0 0 0 12px;
+    color: #353535;
+    font-size: 16px;
+    background: url("//img.echosting.cafe24.com/skin/base/layout/ico_heading.gif") 0 50% no-repeat;
+}
+
+th{
+    text-align: center;
+}
+
+tr{
+    text-align: center;
+}
+
+#aa{
+    font: 0.9em Verdana,Dotum,AppleGothic,sans-serif;
+    color: #353535;
+    padding: 0;
+    margin: 20px 0;
+    border: 1px solid #d6d4d4;
+    line-height: 18px;
+}
+
+#aa h3{
+    line-height: 18px;
+    margin: 0;
+    padding: 9px 0 6px 10px;
+    border-bottom: 1px solid #e8e7e7;
+    color: #101010;
+    font-size: 12px;
+    background: #fbfbfb;
+    text-align: left;
+}
+
+.inner{
+    color: #353535;
+    line-height: 18px;
+    margin: 0;
+    padding: 0 9px 12px;
+}
+
+#aa ol{
+    color: #353535;
+    line-height: 18px;
+    padding: 0;
+    margin: 15px 0 0 11px;
+}
+
+#aa ol li{
+    display: list-item;
+    text-align: -webkit-match-parent;
+    margin: 0;
+    list-style: none;
+    color: #707070;
+    padding: 0 0 0 25px;
+    background: url('//img.echosting.cafe24.com/skin/base/common/ico_number.png') no-repeat;
+}
+
+#aa ol .item1{
+    background-position: -484px 0;
+}
+#aa ol .item2{
+    background-position: -434px -100px;
+}
+
+#aa ol .item3{
+    background-position: -384px -200px;
+}
+
+/* 버튼 */
+#bb{
+    font: 0.75em Verdana,Dotum,AppleGothic,sans-serif;
+    color: #353535;
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+}
+
+#bb .gLeft {
+    float: left;
+    text-align: left;
+}
+
+#bb .displaynone{
+    display: none !important;
+}
+#gLeft a{
+    text-decoration: none;
+    color: #000;
+}
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+#gLeft a img{
+    font: 0.75em Verdana,Dotum,AppleGothic,sans-serif;
+    text-align: left;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    border: none;
+    vertical-align: top;
+}
+
+#gRight{
+    font: 0.75em Verdana,Dotum,AppleGothic,sans-serif;
+    color: #353535;
+    float: right;
+    text-align: right;
+}
+
+#gRight a{
+    font: 0.75em Verdana,Dotum,AppleGothic,sans-serif;
+    text-align: right;
+    text-decoration: none;
+    color: #000;
+}
+
+#gRight a img{
+    font: 0.75em Verdana,Dotum,AppleGothic,sans-serif;
+    text-align: right;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    border: none;
+    vertical-align: top;
+}

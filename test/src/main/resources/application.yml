@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+    url: jdbc:h2:tcp://localhost/~/overwatch
+
+  #jsp 페이지를 처리하기 위한 prefix와 suffix를 application.properties에 추가 하자.
+  #앞서 생성한 JSP 경로를 prefix로 선언, 그리고 확장자럴 suffix로 선언할 수 있다.
+
+  mvc:
+    view:
+      prefix: /templates/views/
+      suffix: .html
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate.format_sql: true
+
+  thymeleaf:
+    cache: false
+
+logging.level:
+  org.hibernate.SQL: debug
+  org.hibernate.type: trace
+
+server:
+  port: 8585

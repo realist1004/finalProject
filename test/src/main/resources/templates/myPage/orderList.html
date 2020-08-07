@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="../css/orderList.css">
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="../js/datepicker-ko.js"></script>
+
+<script>
+
+
+    $( function() {
+        $( ".datepicker" ).datepicker({
+            showOn: "button",
+            buttonImage: "../images/date.png",
+            buttonImageOnly: true,
+            buttonText: "Select date"
+        });
+    });
+    $( function() {
+        $( ".datepicker2" ).datepicker({
+
+            showOn: "button",
+            buttonImage: "../images/date.png",
+            buttonImageOnly: true,
+            buttonText: "Select date"
+        });
+    });
+    var $datepicker = $('.datepicker');
+    $datepicker.datepicker();
+    $datepicker.datepicker('setDate', new Date());
+
+    var $datepicker2 = $('.datepicker2');
+    $datepicker2.datepicker();
+    $datepicker2.datepicker('setDate', new Date());
+</script>
+
+<body>
+<div id="wrap">
+    <div id="container">
+        <div id="content">
+            <div class="titleArea">
+                <h2>주문조회</h2>
+            </div>
+            <!---->
+
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#qwe">주문내역 조회</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#asd">취소/반품/교환 내역</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#zxc">이전 주문내역</a>
+                </li>
+
+            </ul>
+            <!--주문내역 조회-->
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="qwe">
+                    <div class="box"><!-- style="border:1px solid; padding:10px;"-->
+                        <span>
+                        <select name="state">
+                            <option value="all">전체 주문처리상태</option>
+                            <option value="ready">배송준비중</option>
+                            <option value="ing">배송중</option>
+                            <option value="complete">배송완료</option>
+                            <option value="cancel">취소</option>
+                            <option value="exchange">교환</option>
+                            <option value="return">반품</option>
+                        </select>
+
+                            <button type="button"  class="btn btn-outline-secondary btn_today" onclick="setToday()" >오늘</button>
+                            <button type="button" class="btn btn-outline-secondary btn_week" onclick="setWeekAgo()">일주일</button>
+                            <button type="button" class="btn btn-outline-secondary btn_mon" onclick="setMonthAgo()" >1개월</button>
+                            <button type="button" class="btn btn-outline-secondary btn_3mon" onclick="set3MonthAgo()" >3개월</button>
+                            <button type="button" class="btn btn-outline-secondary btn_year" onclick="setYearAgo()">1년</button>
+
+                            <input type="text" name="srchdate1" class="datepicker2"  style="width: 105px" title="시작일" readonly>~
+                            <input type="text" name="srchdate2" class="datepicker"  style="width: 105px" title="종료일" readonly>
+                            <!--<input alt="조회" id="order_search_btn" type="button" src="../images/search.png">-->
+                        </span>
+                    </div>
+
+                    <ul>
+                        <li style="size: 9px">기본적으로 최근 3개월간의 자료가 조회되며, 기간 검색시 지난 주문내역을 조회하실 수 있습니다.</li>
+                        <li>주문번호를 클릭하시면 해당 주문에 대한 상세내역을 확인하실 수 있습니다.</li>
+                        <li class="displaynone">취소/교환/반품 신청은 주문완료일 기준 일까지 가능합니다.</li>
+                    </ul>
+                </div>
+
+                <!--취소/반품/교환 내역-->
+                <div class="tab-pane fade" id="asd">
+                    <div class="box"><!-- style="border:1px solid; padding:10px;"-->
+                        <span>
+
+                            <button type="button"  class="btn btn-outline-secondary btn_today" onclick="setToday()" >오늘</button>
+                            <button type="button" class="btn btn-outline-secondary btn_week" onclick="setWeekAgo()">일주일</button>
+                            <button type="button" class="btn btn-outline-secondary btn_mon" onclick="setMonthAgo()" >1개월</button>
+                            <button type="button" class="btn btn-outline-secondary btn_3mon" onclick="set3MonthAgo()" >3개월</button>
+                            <button type="button" class="btn btn-outline-secondary btn_year" onclick="setYearAgo()">1년</button>
+
+                            <input type="text" name="srchdate1" class="datepicker2"  style="width: 105px" title="시작일" readonly>~
+                            <input type="text" name="srchdate2" class="datepicker"  style="width: 105px" title="종료일" readonly>
+                            <!--<input alt="조회" id="order_search_btn" type="button" src="../images/search.png">-->
+                        </span>
+                    </div>
+
+                    <ul>
+                        <li style="size: 9px">기본적으로 최근 3개월간의 자료가 조회되며, 기간 검색시 지난 주문내역을 조회하실 수 있습니다.</li>
+                        <li>주문번호를 클릭하시면 해당 주문에 대한 상세내역을 확인하실 수 있습니다.</li>
+                        <li class="displaynone">취소/교환/반품 신청은 주문완료일 기준 일까지 가능합니다.</li>
+                    </ul>
+
+                </div>
+                <!--이전주문-->
+                <div class="tab-pane fade" id="zxc">
+                    <p>Nunc vitae turpis id nibh sodales commodo et non augue. Proin fringilla ex nunc. Integer tincidunt risus ut facilisis tristique.</p>
+                </div>
+
+            </div>
+
+
+            <!---->
+
+            <form method="GET" id="OrderHistoryForm" name="OrderHistoryForm">
+                <input id="mode" name="mode" value type="hidden">
+                <input id="term" name="term" value type="hidden">
+            </form>
+
+            <!--동호형 자료-->
+            <div class="ec-base-table typeList"><!--
+        $login_url = /member/login.html
+    -->
+                <div class="title">
+                    <h3>주문 상품 정보</h3>
+                </div>
+
+                    <table border="1" summary="">
+                        <caption>주문 상품 정보</caption>
+                        <colgroup>
+                            <col style="width:135px;">
+                            <col style="width:93px;">
+                            <col style="width:auto;">
+                            <col style="width:61px;">
+                            <col style="width:111px;">
+                            <col style="width:111px;">
+                            <col style="width:111px;">
+                        </colgroup>
+                        <thead><tr>
+                            <th scope="col">주문일자<br>[주문번호]</th>
+                            <th scope="col">이미지</th>
+                            <th scope="col">상품정보</th>
+                            <th scope="col">수량</th>
+                            <th scope="col">상품구매금액</th>
+                            <th scope="col">주문처리상태</th>
+                            <th scope="col">취소/교환/반품</th>
+                        </tr></thead>
+                        <tbody class="center displaynone">
+                        <tr class="">
+                            <td class="number displaynone">
+                                <p><a href="detail.html" class="line">[]</a></p>
+                                <a href="#none" class="displaynone" onclick=""><img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_order_cancel.gif" alt="주문취소"></a>
+                                <a href="cancel.html" class="displaynone button"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_order_cancel2.gif" alt="취소신청"></a>
+                                <a href="exchange.html" class="displaynone button"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_order_exchange.gif" alt="교환신청"></a>
+                                <a href="return.html" class="displaynone button"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_order_return.gif" alt="반품신청"></a>
+                            </td>
+                            <td class="thumb"><a href="/product/detail.html"><img src="//img.echosting.cafe24.com/thumb/img_product_small.gif" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" alt=""></a></td>
+                            <td class="product left top">
+                                <strong class="name"></strong>
+                                <div class="option displaynone"></div>
+                                <ul class="xans-element- xans-myshop xans-myshop-optionset option"><li class="">
+                                    <strong></strong> (개)</li>
+                                </ul>
+                                <p class="gBlank5 displaynone">무이자할부 상품</p>
+                            </td>
+                            <td></td>
+                            <td class="right">
+                                <strong></strong><div class="displaynone"></div>
+                            </td>
+                            <td class="state">
+                                <p class="txtEm"></p>
+                                <p class="displaynone"><a href="" target=""></a></p>
+                                <p class="displaynone"><a href="#none" class="line" onclick="">[]</a></p>
+                                <a href="/board/product/write.html" class="displaynone"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_order_comment.gif" alt="구매후기"></a>
+                                <a href="#none" class="displaynone" onclick=""><img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_order_retract.gif" alt="취소철회"></a>
+                                <a href="#none" class="displaynone" onclick=""><img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_order_retract2.gif" alt="교환철회"></a>
+                                <a href="#none" class="displaynone" onclick=""><img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_order_retract3.gif" alt="반품철회"></a>
+                            </td>
+                            <td>
+                                <p class="displaynone"><a href="#none" class="line" onclick="">[상세정보]</a></p>
+                                <p class="displaynone">-</p>
+                            </td>
+                        </tr>
+                        <tr class="">
+                            <td class="number displaynone">
+                                <p><a href="detail.html" class="line">[]</a></p>
+                                <a href="#none" class="displaynone" onclick=""><img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_order_cancel.gif" alt="주문취소"></a>
+                                <a href="cancel.html" class="displaynone button"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_order_cancel2.gif" alt="취소신청"></a>
+                                <a href="exchange.html" class="displaynone button"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_order_exchange.gif" alt="교환신청"></a>
+                                <a href="return.html" class="displaynone button"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_order_return.gif" alt="반품신청"></a>
+                            </td>
+                            <td class="thumb"><a href="/product/detail.html"><img src="//img.echosting.cafe24.com/thumb/img_product_small.gif" onerror="this.src='//img.echosting.cafe24.com/thumb/img_product_small.gif';" alt=""></a></td>
+                            <td class="product left top">
+                                <strong class="name"></strong>
+                                <div class="option displaynone"></div>
+                                <ul class="xans-element- xans-myshop xans-myshop-optionset option"><li class="">
+                                    <strong></strong> (개)</li>
+                                </ul>
+                                <p class="gBlank5 displaynone">무이자할부 상품</p>
+                            </td>
+                            <td></td>
+                            <td class="right">
+                                <strong></strong><div class="displaynone"></div>
+                            </td>
+                            <td class="state">
+                                <p class="txtEm"></p>
+                                <p class="displaynone"><a href="" target=""></a></p>
+                                <p class="displaynone"><a href="#none" class="line" onclick="">[]</a></p>
+                                <a href="/board/product/write.html" class="displaynone"><img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_order_comment.gif" alt="구매후기"></a>
+                                <a href="#none" class="displaynone" onclick=""><img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_order_retract.gif" alt="취소철회"></a>
+                                <a href="#none" class="displaynone" onclick=""><img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_order_retract2.gif" alt="교환철회"></a>
+                                <a href="#none" class="displaynone" onclick=""><img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_order_retract3.gif" alt="반품철회"></a>
+                            </td>
+                            <td>
+                                <p class="displaynone"><a href="#none" class="line" onclick="">[상세정보]</a></p>
+                                <p class="displaynone">-</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <p class="message ">주문 내역이 없습니다.</p>
+
+        </div>
+        <hr class="layout">
+
+    </div>
+    <hr class="layout">
+</div>
+<hr class="layout">
+<script>
+    // 오늘 날짜를 문자열로 반환
+    function getToday() {
+        var nowDate = new Date();
+        var nowYear = nowDate.getFullYear();
+        var nowMonth = nowDate.getMonth()+1;
+        var nowDay = nowDate.getDate();
+
+        if(nowMonth <10){nowMonth = "0" + nowMonth;}
+        if(nowDay <10){nowDay = "0" + nowDay;}
+
+        var todayDate = nowYear+"."+nowMonth+"."+nowDay;
+        return todayDate;
+    }
+
+    function setToday() {
+        $(".datepicker").val(getToday());
+        $(".datepicker2").val(getToday());
+    }
+
+    // 일주일전 문자열로 반환
+    function setWeekAgo() {
+        var nowDate = new Date();
+        var monthDate = nowDate.getTime()-(7*24*60*60*1000);
+        nowDate.setTime(monthDate);
+
+        var monthYear = nowDate.getFullYear();
+        var monthMonth = nowDate.getMonth()+1;
+        var monthDay = nowDate.getDate();
+
+        if(monthMonth <10){monthMonth = "0" + monthMonth;}
+        if(monthDay <10){monthDay = "0" + monthDay;}
+
+        var resultDate = monthYear+"."+ monthMonth+"."+ monthDay;
+
+        $(".datepicker").val(getToday());
+        $(".datepicker2").val(resultDate);
+    }
+
+
+
+
+    // 1개월전 문자열로 반환
+    function setMonthAgo() {
+        var nowDate = new Date();
+        var weekDate = nowDate.getTime()-(31*24*60*60*1000);
+        nowDate.setTime(weekDate);
+
+        var weekYear = nowDate.getFullYear();
+        var weekMonth = nowDate.getMonth()+1;
+        var weekDay = nowDate.getDate();
+
+        if(weekMonth <10){weekMonth = "0" + weekMonth;}
+        if(weekDay <10){weekDay = "0" + weekDay;}
+
+        var resultDate = weekYear+"."+ weekMonth+"."+ weekDay;
+
+        $(".datepicker").val(getToday());
+        $(".datepicker2").val(resultDate);
+    }
+
+    // 3개월전 문자열로 반환
+    function set3MonthAgo() {
+        var nowDate = new Date();
+        var monthDate = nowDate.getTime()-(92*24*60*60*1000);
+        nowDate.setTime(monthDate);
+
+        var monthYear = nowDate.getFullYear();
+        var monthMonth = nowDate.getMonth()+1;
+        var monthDay = nowDate.getDate();
+
+        if(monthMonth <10){monthMonth = "0" + monthMonth;}
+        if(monthDay <10){monthDay = "0" + monthDay;}
+
+        var resultDate = monthYear+"."+ monthMonth+"."+ monthDay;
+
+        $(".datepicker").val(getToday());
+        $(".datepicker2").val(resultDate);
+    }
+
+
+    // 1년전 문자열로 반환
+    function setYearAgo() {
+        var nowDate = new Date();
+        var monthDate = nowDate.getTime()-(365*24*60*60*1000);
+        nowDate.setTime(monthDate);
+
+        var monthYear = nowDate.getFullYear();
+        var monthMonth = nowDate.getMonth()+1;
+        var monthDay = nowDate.getDate();
+
+        if(monthMonth <10){monthMonth = "0" + monthMonth;}
+        if(monthDay <10){monthDay = "0" + monthDay;}
+
+        var resultDate = monthYear+"."+ monthMonth+"."+ monthDay;
+
+        $(".datepicker").val(getToday());
+        $(".datepicker2").val(resultDate);
+    }
+</script>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

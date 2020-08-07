@@ -1,0 +1,197 @@
+#wrap{
+    font: 0.9em Verdana,Dotum,AppleGothic,sans-serif;
+    color: #353535;
+    padding: 0;
+    position: relative;
+    width: 80%;
+    margin: 27px auto 0;
+}
+
+#container{
+    color: #353535;
+    padding: 0;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+#container:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+#content {
+    margin: 0 auto;
+}
+
+.titleArea{
+    color: #353535;
+    padding: 0;
+    min-height: 30px;
+    margin: 10px 0 20px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.titleArea h2{
+    margin: 0;
+    display: inline-block;
+    padding: 0 0 0 12px;
+    color: #2e2e2e;
+    font-size: 16px;
+    background: url("//img.echosting.cafe24.com/skin/base/layout/ico_heading.gif") 0 50% no-repeat;
+}
+
+.box{
+    margin: 0 auto;
+    border: solid 1px #8f8f8f;
+    padding: 10px;
+}
+/*#order_search_btn{
+    width: 40px;
+    height: 20px;
+}*/
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+ul li {
+    padding: 0 0 0 9px;
+    background: url(//img.echosting.cafe24.com/skin/base/common/ico_square2.gif) no-repeat 4px 7px;
+    list-style: none;
+}
+
+/* 주문상품정보 */
+.ec-base-table{
+    color: #353535;
+    margin: 0;
+    padding: 0;
+}
+
+.title{
+    margin: 40px 0 10px 10px;
+}
+
+.title h3{
+    font-size: 12px;
+}
+
+.ec-base-table table {
+    position: relative;
+    margin: 10px 0 0;
+    border: 1px solid #d7d5d5;
+    border-top: 0;
+    color: #fff;
+    line-height: 1.5;
+}
+
+table {
+    width: 100%;
+    border: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.ec-base-table table:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background: #d7d5d5;
+}
+
+caption{
+    border-spacing: 0;
+    border-collapse: collapse;
+    color: #fff;
+    line-height: 1.5;
+    display: none;
+}
+
+colgroup{
+    border-spacing: 0;
+    border-collapse: collapse;
+    color: #fff;
+    line-height: 1.5;
+}
+
+thead{
+    color: #fff;
+    line-height: 1.5;
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+tr{
+    border-spacing: 0;
+    border-collapse: collapse;
+    color: #fff;
+    line-height: 1.5;
+}
+
+.ec-base-table th:first-child {
+    border-left: 0;
+}
+
+.ec-base-table thead th {
+    padding: 11px 0 10px;
+    border-left: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
+    color: #353535;
+    vertical-align: middle;
+    font-weight: normal;
+    background: #fbfafa;
+}
+
+.ec-base-table th {
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+th, td {
+    border: 0;
+    vertical-align: top;
+}
+
+.ec-base-table .center {
+    text-align: center;
+}
+
+.displaynone {
+    display: none !important;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.ec-base-table table + .message {
+    margin: -1px 0 0;
+}
+
+.ec-base-table .message {
+    border: 1px solid #d7d5d5;
+    padding: 50px 0;
+    text-align: center;
+    color: #757575;
+    font-weight: bold;
+}
+p {
+    font: 0.9em Verdana,Dotum,AppleGothic,sans-serif;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}

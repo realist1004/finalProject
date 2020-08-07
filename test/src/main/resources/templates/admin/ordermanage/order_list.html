@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<!-- 비동기 적용할 부분
+   1. 검색어 + 버튼시 검색어 줄 추가 삭제
+   2. 기간 날짜 버튼시 색상 변경 id:selected 바뀌고 날짜에 맞게 변경됨
+   3. 달력아이콘(부트스트랩 datepicker 검색)
+-->
+<html lang="en" xmlns:form="http://www.w3.org/1999/html">
+<style>
+
+
+    label.gLabel {
+        outline: 0;
+    }
+    .gLabel .fChk {
+        vertical-align: text-top;
+    }
+    th,  td {
+        padding: 9px 9px 7px;
+        border: 1px solid #dedede;
+        text-align: left;
+    }
+    .gLabel {
+        display: inline-block;
+        margin: 0 28px 0 0;
+    }
+    th{
+        background-color: aliceblue;
+    }
+    .btnDate{
+        min-width: 46px;
+        height: 28px;
+        padding: 0 5px;
+        font-size: 13px;
+        line-height: 26px;
+        color: #2e3039;
+        border: 1px solid #98989b;
+        background-color: #fff;
+        -webkit-transition: .2s ease-out;
+        transition: .2s ease-out;
+    }
+    .btnDate.selected {
+        color: #fff;
+        border-color: #55a0ff;
+        background-color: #55a0ff;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script>
+
+
+        $( function() {
+            $( "#datepicker" ).datepicker({
+                showOn: "button",
+                buttonImage: "../images/date.png",
+                buttonImageOnly: true,
+                buttonText: "Select date"
+            });
+        } );
+
+        $( function() {
+            $( "#datepicker2" ).datepicker({
+
+                showOn: "button",
+                buttonImage: "../images/date.png",
+                buttonImageOnly: true,
+                buttonText: "Select date"
+            });
+        } );
+
+        var $datepicker = $('#datepicker');
+        $datepicker.datepicker();
+        $datepicker.datepicker('setDate', new Date());
+
+        var $datepicker2 = $('#datepicker2');
+        $datepicker2.datepicker();
+        $datepicker2.datepicker('setDate', new Date());
+    </script>
+
+</head>
+<body>
+
+
+<div class="content">
+    <div class="header">
+        <div>
+            <ol style="list-style-type: none">
+                <li style="float: left" >홈 ></li>
+                <li style="float: left" class="">주문관리 ></li>
+                <li style="float: left" class="" title="현재 위치">전체주문목록</li>
+            </ol>
+        </div>
+        <br><br>
+
+        <div class="title"><h1>전체주문목록</h1></div>
+    </div>
+        <br><br>
+
+    <div style="background-color: #f8f8f8; ">
+        <div style="padding: 30px 100px 350px 20px;">
+        <table  style="float: left; width: 100%; height: 300px; border-spacing: 0; border-collapse: collapse;">
+            <tr>
+                <th>검색어</th>
+                <td colspan="3">
+                    <div id="mainSearch">
+                    <select style="width: 163px;">
+                        <option value="choice">--검색항목선택--</option>
+                        <option value="order_id">주문번호</option>
+                        <option value="delivery_code">배송번호</option>
+                        <option value="member_name">주문자명</option>
+                        <option value="member_id">주문자 아이디</option>
+                        <option value="member_phone">주문자 휴대전화</option>
+                    </select>
+                        <input type="text" id="SearchBox" style="width:400px;">
+                    </div>
+                </td>
+
+            </tr>
+            <tr>
+                <th >기간</th>
+                <td colspan="6">
+
+
+                    <select name="date_type" style="width: 115px" >
+                        <option value="order_date" selected="selected">주문일</option>
+                        <option value="pay_date" >결제일</option>
+                        <option value="shipbegin_date" >배송시작일</option>
+                        <option value="shipend_date" >배송완료일</option>
+                    </select>
+
+                    <button type="button"  class="btn btn-outline-secondary  " onclick="setToday()" id="btn_today">오늘</button>
+                    <button type="button" class="btn btn-outline-secondary " onclick="setWeekAgo()" id="btn_week">일주일</button>
+                    <button type="button" class="btn btn-outline-secondary " onclick="setMonthAgo()" id="btn_mon">1개월</button>
+                    <button type="button" class="btn btn-outline-secondary " onclick="set3MonthAgo()" id="btn_3mon">3개월</button>
+                    <button type="button" class="btn btn-outline-secondary " onclick="setYearAgo()" id="btn_year">1년</button>
+
+
+                    <span >
+                        <input type="text"  id="datepicker2" class="calendar" style="width: 105px" title="시작일" readonly>~
+                        <input type="text"  id="datepicker" class="calendar" style="width: 105px" title="종료일" readonly>
+                    </span>
+
+
+                </td>
+            </tr>
+            <tr>
+                <th>상품</th>
+                <td colspan="3">
+                    <select class="dropdown" id="productSearchType" name="product_search_type" style="width: 110px;">
+                        <option value="p_name" selected="selected">상품명</option>
+                        <option value="p_code">상품코드</option>
+                        <option value="i_code">품목코드</option>
+                        <option value="manufacturer_name">제조사</option>
+                    </select>
+                    <input type="text" id="orderProductText" name="order_product_text" class="text" style="width: 490px;" value>
+                    <input type="hidden" name="order_product_no" id="orderProductNo" value>
+                    <input type="hidden" name="find_option" value="product_no">
+
+                    <a onclick="window.open('/order/search_order','window_name','width=750,height=800,location=no,status=no,scrollbars=yes');" id="productSearchBtn"  style= "margin:5px; padding:6px; border:solid 1px black; color:black;" >
+                        <span>상품찾기&nbsp;<em class="fa fa-caret-right" aria-hidden="true"></em></span>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <th>주문상태</th>
+                <td colspan="3" id="orderStatusCheck">
+                    <label class="gLabel selected">
+                        <input type="checkbox"  class="chk" value="all" id="chk_all">전체
+                    </label>
+                    <label class="gLabel selected">
+                        <input type="checkbox" name="chk" class="chk" value="N20" id="chk2">배송준비중
+                    </label>
+                    <label class="gLabel selected">
+                        <input type="checkbox" name="chk" class="chk" value="N22" id="chk3">배송보류
+                    </label>
+                    <label class="gLabel selected">
+                        <input type="checkbox" name="chk" class="chk" value="N21" id="chk4">배송대기
+                    </label>
+                    <label class="gLabel selected">
+                        <input type="checkbox" name="chk" class="chk" value="N30" id="chk5">배송중
+                    </label>
+                    <label class="gLabel selected">
+                        <input type="checkbox" name="chk" class="chk" value="N40" id="chk6">배송완료
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <th>CS주문상태</th>
+                <td colspan="3">
+                    <label class="gLabel">
+                        <input type="checkbox" id="chk_all2" class="chk2">전체
+                    </label>
+                    <label class="gLabel">
+                        <input type="checkbox" name="chk2" value="all" class="chk2" id="chk2_2">취소
+                    </label>
+                    <label class="gLabel">
+                        <input type="checkbox" name="chk2" value="all" class="chk2" id="chk3_2">교환
+                    </label>
+                    <label class="gLabel">
+                        <input type="checkbox" name="chk2" value="all" class="chk2" id="chk4_2">반품
+                    </label>
+                    <label class="gLabel">
+                        <input type="checkbox" name="chk2" value="all" class="chk2" id="chk5_2">환불
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <th>입금/결제상태</th>
+                <td>
+                <label class="gLabel">
+                    <input type="checkbox"  id="chk_all3" class="chk3" value="all" >전체
+                </label>
+                <label class="gLabel">
+                    <input type="checkbox" name="chk3" class="chk3" value="F" id="chk2_3">입금전
+                </label>
+                <label class="gLabel">
+                    <input type="checkbox" name="chk3" class="chk3" value="M" id="chk3_3">추가입금대기
+                </label>
+                <label class="gLabel">
+                    <input type="checkbox" name="chk3" class="chk3" value="TA" id="chk4_3">입금완료
+                </label>
+                <label class="gLabel">
+                    <input type="checkbox" name="chk3" class="chk3" value="P" id="chk5_3">결제완료
+                </label>
+                </td>
+
+            <th>회원구분</th>
+            <td>
+                <label class="gLabel">
+                    <input type="checkbox" id="chk_all4" class="chk4" value="1" >전체
+                </label>
+                <label class="gLabel">
+                    <input type="checkbox" name="chk4" class="chk4" value="2" id="chk2_4">회원
+                </label>
+                <label class="gLabel">
+                    <input type="checkbox" name="chk4" class="chk4" value="3" id="chk3_4">비회원
+                </label>
+            </td>
+            </tr>
+        </table>
+        </div>
+        <div class="text-center">
+            <a href="#none" id="eBtnSearch" class="btn btn-primary">
+                <span>검색</span>
+            </a>
+            <a href="#none" id="eBtnInit" class="btn btn-default" style= "border:solid 1px #55a0ff;; color:#55a0ff;;" >
+                <span>초기화</span>
+            </a>
+          <!--  <div id="ordProgress" class="loading">
+                <p>처리중입니다. 잠시만 기다려주세요.</p>
+                <img src="//img.echosting.cafe24.com/ec/mode/influencer/common/ico_loading.gif" alt>
+            </div>-->
+        </div>
+    </div>
+    <br><br>
+    <div class="s" style="margin: 0 0 3px">
+
+        <div style="padding: 15px 20px;" class="tab-content">
+            <div class="tab-pane fade show active" id="qwe">
+                <br>
+               <p class="total">[검색결과<strong>0</strong>건]</p>
+
+            <div id="searchResultList" >
+                <table class="table">
+                        <tr>
+                            <th><input type="checkbox" id="allChk"></th>
+                            <th>NO</th>
+                            <th>주문일(결제일)</th>
+                            <th>주문번호</th>
+                            <th>주문자</th>
+                            <th>상품명</th>
+                            <th>총 상품구매금액</th>
+                            <th>총 주문금액</th>
+                            <th>총 실결제금액</th>
+                            <th>결제수단</th>
+                            <th>결제상태</th>
+                            <th>미배송</th>
+                            <th>배송중</th>
+                            <th>배송완료</th>
+                            <th>취소</th>
+                            <th>교환</th>
+                            <th>반품</th>
+                            <th>메모</th>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;" colspan="18">검색된 주문내역이 없습니다.</td>
+                        </tr>
+
+                </table>
+            </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // 체크박스 전체선택 및 전체선택 해제
+    $('#chk_all').click(function () {
+        if($("#chk_all").is(':checked')){
+            $(".chk").prop("checked",true);
+        }else {
+            $(".chk").prop("checked",false);
+        }
+    });
+    // 한개의 체크박스 선택 해제시 전체선택 체크박스도 해제
+    $('.chk').click(function () {
+        if($("input[name='chk']:checked").length == 5){
+            $("#chk_all").prop("checked",true);
+        }else {
+            $("#chk_all").prop("checked",false);
+        }
+    });
+    /////////////////////////////////////////////////
+    // 체크박스 전체선택 및 전체선택 해제
+    $('#chk_all2').click(function () {
+        if($("#chk_all2").is(':checked')){
+            $(".chk2").prop("checked",true);
+        }else {
+            $(".chk2").prop("checked",false);
+        }
+    });
+    // 한개의 체크박스 선택 해제시 전체선택 체크박스도 해제
+    $('.chk2').click(function () {
+        if($("input[name='chk2']:checked").length == 4){
+            $("#chk_all2").prop("checked",true);
+        }else {
+            $("#chk_all2").prop("checked",false);
+        }
+    });
+    /////////////////////////////////////////////////
+    // 체크박스 전체선택 및 전체선택 해제
+    $('#chk_all3').click(function () {
+        if($("#chk_all3").is(':checked')){
+            $(".chk3").prop("checked",true);
+        }else {
+            $(".chk3").prop("checked",false);
+        }
+    });
+    // 한개의 체크박스 선택 해제시 전체선택 체크박스도 해제
+    $('.chk3').click(function () {
+        if($("input[name='chk3']:checked").length == 4){
+            $("#chk_all3").prop("checked",true);
+        }else {
+            $("#chk_all3").prop("checked",false);
+        }
+    });
+    /////////////////////////////////////////////////
+    // 체크박스 전체선택 및 전체선택 해제
+    $('#chk_all4').click(function () {
+        if($("#chk_all4").is(':checked')){
+            $(".chk4").prop("checked",true);
+        }else {
+            $(".chk4").prop("checked",false);
+        }
+    });
+    // 한개의 체크박스 선택 해제시 전체선택 체크박스도 해제
+    $('.chk4').click(function () {
+        if($("input[name='chk4']:checked").length == 2){
+            $("#chk_all4").prop("checked",true);
+        }else {
+            $("#chk_all4").prop("checked",false);
+        }
+    });
+
+
+
+    // 오늘 날짜를 문자열로 반환
+    function getToday() {
+        var nowDate = new Date();
+        var nowYear = nowDate.getFullYear();
+        var nowMonth = nowDate.getMonth()+1;
+        var nowDay = nowDate.getDate();
+
+        if(nowMonth <10){nowMonth = "0" + nowMonth;}
+        if(nowDay <10){nowDay = "0" + nowDay;}
+
+        var todayDate = nowYear+"."+nowMonth+"."+nowDay;
+        return todayDate;
+    }
+
+    function setToday() {
+        $("#datepicker").val(getToday());
+        $("#datepicker2").val(getToday());
+    }
+
+    // 일주일전 문자열로 반환
+    function setWeekAgo() {
+        var nowDate = new Date();
+        var monthDate = nowDate.getTime()-(7*24*60*60*1000);
+        nowDate.setTime(monthDate);
+
+        var monthYear = nowDate.getFullYear();
+        var monthMonth = nowDate.getMonth()+1;
+        var monthDay = nowDate.getDate();
+
+        if(monthMonth <10){monthMonth = "0" + monthMonth;}
+        if(monthDay <10){monthDay = "0" + monthDay;}
+
+        var resultDate = monthYear+"."+ monthMonth+"."+ monthDay;
+
+        $("#datepicker").val(getToday());
+        $("#datepicker2").val(resultDate);
+    }
+
+
+
+
+    // 1개월전 문자열로 반환
+    function setMonthAgo() {
+        var nowDate = new Date();
+        var weekDate = nowDate.getTime()-(31*24*60*60*1000);
+        nowDate.setTime(weekDate);
+
+        var weekYear = nowDate.getFullYear();
+        var weekMonth = nowDate.getMonth()+1;
+        var weekDay = nowDate.getDate();
+
+        if(weekMonth <10){weekMonth = "0" + weekMonth;}
+        if(weekDay <10){weekDay = "0" + weekDay;}
+
+        var resultDate = weekYear+"."+ weekMonth+"."+ weekDay;
+
+        $("#datepicker").val(getToday());
+        $("#datepicker2").val(resultDate);
+    }
+
+    // 3개월전 문자열로 반환
+    function set3MonthAgo() {
+        var nowDate = new Date();
+        var monthDate = nowDate.getTime()-(92*24*60*60*1000);
+        nowDate.setTime(monthDate);
+
+        var monthYear = nowDate.getFullYear();
+        var monthMonth = nowDate.getMonth()+1;
+        var monthDay = nowDate.getDate();
+
+        if(monthMonth <10){monthMonth = "0" + monthMonth;}
+        if(monthDay <10){monthDay = "0" + monthDay;}
+
+        var resultDate = monthYear+"."+ monthMonth+"."+ monthDay;
+
+        $("#datepicker").val(getToday());
+        $("#datepicker2").val(resultDate);
+    }
+
+
+    // 1년전 문자열로 반환
+    function setYearAgo() {
+        var nowDate = new Date();
+        var monthDate = nowDate.getTime()-(366*24*60*60*1000);
+        nowDate.setTime(monthDate);
+
+        var monthYear = nowDate.getFullYear();
+        var monthMonth = nowDate.getMonth()+1;
+        var monthDay = nowDate.getDate();
+
+        if(monthMonth <10){monthMonth = "0" + monthMonth;}
+        if(monthDay <10){monthDay = "0" + monthDay;}
+
+        var resultDate = monthYear+"."+ monthMonth+"."+ monthDay;
+
+        $("#datepicker").val(getToday());
+        $("#datepicker2").val(resultDate);
+    }
+
+
+</script>
+
+</body>
+</html>

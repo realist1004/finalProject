@@ -1,0 +1,345 @@
+#wrap {
+    font: 0.9em Verdana, Dotum, AppleGothic, sans-serif;
+    color: #353535;
+    padding: 0;
+    position: relative;
+    width: 60%;
+    margin: 27px auto 0;
+}
+
+#container {
+    margin: 0 auto;
+}
+
+#content {
+    margin: 0 auto;
+}
+
+.titleArea {
+    min-height: 30px;
+    margin: 10px 0 20px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.titleArea h2 {
+    margin: 0;
+    display: inline-block;
+    padding: 0 0 0 12px;
+    color: #353535;
+    font-size: 16px;
+    background: url("//img.echosting.cafe24.com/skin/base/layout/ico_heading.gif") 0 50% no-repeat;
+}
+
+.titleArea p {
+    font: 0.75em Verdana,Dotum,AppleGothic,sans-serif;
+    display: inline-block;
+    margin: 0 0 0 6px;
+    padding: 0 0 0 10px;
+    color: #939393;
+    background: url("//img.echosting.cafe24.com/skin/base/common/ico_bar.gif") no-repeat 0 0;
+}
+
+caption {
+    border-spacing: 0;
+    border-collapse: collapse;
+    color: #fff;
+    line-height: 1.5;
+    display: none;
+}
+
+colgroup {
+    border-spacing: 0;
+    border-collapse: collapse;
+    color: #fff;
+    line-height: 1.5;
+    display: table-column-group;
+}
+
+colgroup col {
+    width: 120px;
+}
+
+tbody{
+    border-spacing: 0;
+    border-collapse: collapse;
+    color: #fff;
+    line-height: 1.5;
+}
+
+tr{
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+th{
+    border-spacing: 0;
+    border-collapse: collapse;
+    line-height: 1.5;
+    margin: 0;
+    vertical-align: top;
+    word-break: break-all;
+    padding: 11px 0 10px 18px;
+    border: 1px solid #dfdfdf;
+    border-bottom-width: 0;
+    color: #353535;
+    text-align: left;
+    font-weight: normal;
+    background-color: #fbfafa;
+    border-left: 0;
+}
+
+td{
+    display: table-cell;
+}
+
+.ec-base-table.typeWrite img{
+    border-spacing: 0;
+    border-collapse: collapse;
+    line-height: 1.5;
+    word-break: break-all;
+    color: #353535;
+    text-align: left;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+    border: none;
+    vertical-align: middle;
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+.ec-base-table td {
+    padding: 11px 10px 10px;
+    border-top: 1px solid #dfdfdf;
+    color: #353535;
+    vertical-align: middle;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.ec-base-table.typeWrite td{
+    padding: 8px 10px 7px;
+}
+
+
+input{
+    border-spacing: 0;
+    border-collapse: collapse;
+    word-break: break-all;
+    margin: 0;
+    font-family: "돋움",Dotum;
+    vertical-align: middle;
+    height: 21px;
+    line-height: 20px;
+    padding: 2px 4px;
+    border: 1px solid #d5d5d5;
+    color: #353535;
+    font-size: 12px;
+    width: 180px;
+}
+
+#sample6_postcode{
+    border-spacing: 0;
+    border-collapse: collapse;
+    word-break: break-all;
+    margin: 0;
+    font-family: "돋움",Dotum;
+    vertical-align: middle;
+    height: 18px;
+    line-height: 20px;
+    padding: 2px 4px;
+    border: 1px solid #d5d5d5;
+    color: #353535;
+    font-size: 12px;
+    width: 60px;
+    text-align: center;
+}
+
+/*input[type=text], input[type=password] {*/
+/* height: 18px;*/
+/* line-height: 20px;*/
+/* padding: 2px 4px;*/
+/* border: 1px solid #d5d5d5;*/
+/* color: #353535;*/
+/* font-size: 12px;*/
+/*}*/
+
+#sample6_address {
+    width: 327px;
+    margin: 5px 0 0;
+}
+
+#sample6_detailAddress {
+    width: 223px;
+    margin: 5px 0 0;
+}
+
+#sample6_extraAddress {
+    width: 100px;
+    margin: 5px 0 0;
+}
+
+#ma_rcv_mobile_no2{
+    border-spacing: 0;
+    border-collapse: collapse;
+    word-break: break-all;
+    font-family: "돋움",Dotum;
+    vertical-align: middle;
+    height: 18px;
+    line-height: 20px;
+    padding: 2px 4px;
+    border: 1px solid #d5d5d5;
+    color: #353535;
+    font-size: 12px;
+    width: 60px;
+    margin: 0 4px;
+}
+
+#ma_rcv_mobile_no3{
+    border-spacing: 0;
+    border-collapse: collapse;
+    word-break: break-all;
+    font-family: "돋움",Dotum;
+    vertical-align: middle;
+    height: 18px;
+    line-height: 20px;
+    padding: 2px 4px;
+    border: 1px solid #d5d5d5;
+    color: #353535;
+    font-size: 12px;
+    width: 60px;
+    margin: 0 4px;
+}
+
+#ma_rcv_birthday_no2{
+    border-spacing: 0;
+    border-collapse: collapse;
+    word-break: break-all;
+    font-family: "돋움",Dotum;
+    vertical-align: middle;
+    height: 18px;
+    line-height: 20px;
+    padding: 2px 4px;
+    border: 1px solid #d5d5d5;
+    color: #353535;
+    font-size: 12px;
+    width: 60px;
+    margin: 0 4px;
+}
+
+#ma_rcv_birthday_no3{
+    border-spacing: 0;
+    border-collapse: collapse;
+    word-break: break-all;
+    font-family: "돋움",Dotum;
+    vertical-align: middle;
+    height: 18px;
+    line-height: 20px;
+    padding: 2px 4px;
+    border: 1px solid #d5d5d5;
+    color: #353535;
+    font-size: 12px;
+    width: 60px;
+    margin: 0 4px;
+}
+
+.ec-base-table .right {
+    text-align: right;
+}
+
+input[type=checkbox] {
+    width: 13px;
+    height: 13px;
+    border: 0;
+}
+
+input[type="checkbox" i] {
+    background-color: initial;
+    cursor: default;
+    -webkit-appearance: checkbox;
+    box-sizing: border-box;
+    margin: 3px 3px 3px 4px;
+    padding: initial;
+    border: initial;
+}
+
+input[type=checkbox] + label {
+    margin: 0 4px 0 2px;
+}
+
+label {
+    cursor: default;
+}
+
+
+
+#aa{
+    font: 0.9em Verdana,Dotum,AppleGothic,sans-serif;
+    color: #353535;
+    padding: 0;
+    margin: 20px 0;
+    border: 1px solid #d6d4d4;
+    line-height: 18px;
+}
+
+#aa h3{
+    line-height: 18px;
+    margin: 0;
+    padding: 9px 0 6px 10px;
+    border-bottom: 1px solid #e8e7e7;
+    color: #101010;
+    font-size: 12px;
+    background: #fbfbfb;
+    text-align: left;
+}
+
+.inner{
+    color: #353535;
+    line-height: 18px;
+    margin: 0;
+    padding: 0 9px 12px;
+}
+
+#aa ol{
+    color: #353535;
+    line-height: 18px;
+    padding: 0;
+    margin: 15px 0 0 11px;
+}
+
+#aa ol li{
+    display: list-item;
+    text-align: -webkit-match-parent;
+    margin: 0;
+    list-style: none;
+    color: #707070;
+    padding: 0 0 0 25px;
+    background: url('//img.echosting.cafe24.com/skin/base/common/ico_number.png') no-repeat;
+}
+
+#aa ol .item1{
+    background-position: -484px 0;
+}
+#aa ol .item2{
+    background-position: -434px -100px;
+}
+
+#aa ol .item3{
+    background-position: -384px -200px;
+}
+
+.ec-base-button {
+    padding: 10px 0;
+    text-align: center;
+}
+
+.ec-base-button {
+    padding: 10px 0;
+    text-align: center;
+}
+
+.ec-base-button .gRight {
+    float: right;
+    text-align: right;
+}

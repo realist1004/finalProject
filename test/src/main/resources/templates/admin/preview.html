@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input id="imageFile" name="imageFile" type="file" class="imageFile"  accept="image/*"   />
+<input type="button" value="Resize Image"  onclick="ResizeImage()"/>
+<br/>
+<img src="" id="preview">
+<img src="" id="output">
+
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    $(document).ready(function() {
+
+        $('#imageFile').change(function(evt) {
+
+            var files = evt.target.files;
+            var file = files[0];
+
+            if (file) {
+                var img = new Image();
+                var reader = new FileReader();
+                // Set the image once loaded into file reader
+                reader.onload = function(e) {
+                    img.src = e.target.result;
+
+                    var canvas = document.createElement("canvas");
+                    var ctx = canvas.getContext("2d");
+                    ctx.drawImage(img, 0, 0);
+
+                    var MAX_WIDTH = 250;
+                    var MAX_HEIGHT = 250;
+
+                    img.onload = function() {
+                        var width = img.width;
+                        var height = img.height;
+
+                        if (width > height) {
+                            if (width > MAX_WIDTH) {
+                                height *= MAX_WIDTH / width;
+                                width = MAX_WIDTH;
+                            }
+                        } else {
+                            if (height > MAX_HEIGHT) {
+                                width *= MAX_HEIGHT / height;
+                                height = MAX_HEIGHT;
+                            }
+                        }
+                        canvas.width = width;
+                        canvas.height = height;
+
+                        var ctx = canvas.getContext("2d");
+                        ctx.drawImage(img, 0, 0, width, height);
+
+                        dataurl = canvas.toDataURL(file.type);
+
+                        document.getElementById('preview').src = dataurl;
+                    };
+
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    });
+</script>
+
+</html>

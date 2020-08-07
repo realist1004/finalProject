@@ -1,0 +1,296 @@
+/* =============================주문처리 현황==================================== */
+#wrap{
+    font: 0.75em Verdana,Dotum,AppleGothic,sans-serif;
+    color: #353535;
+    padding: 0;
+    position: relative;
+    width: 1200px;
+    margin: 27px auto 0;
+}
+
+#container{
+    font: 0.75em Verdana,Dotum,AppleGothic,sans-serif;
+    color: #353535;
+    padding: 0;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+#content{
+    font: 0.75em Verdana,Dotum,AppleGothic,sans-serif;
+    color: #353535;
+    padding: 0;
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.titleArea{
+    font: 0.75em Verdana,Dotum,AppleGothic,sans-serif;
+    color: #353535;
+    padding: 0;
+    min-height: 30px;
+    margin: 10px 0 20px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.titleArea h2{
+    font: 0.75em Verdana,Dotum,AppleGothic,sans-serif;
+    margin: 0;
+    display: inline-block;
+    padding: 0 0 0 12px;
+    color: #2e2e2e;
+    font-size: 16px;
+    background: url("//img.echosting.cafe24.com/skin/base/layout/ico_heading.gif") 0 50% no-repeat;
+}
+
+#aa {
+    font: 0.75em Verdana,Dotum,AppleGothic,sans-serif;
+    color: #353535;
+    padding: 0;
+    margin: 0 auto;
+    border: 1px solid #777;
+
+}
+
+#title {
+    font: 0.75em Verdana, Dotum, AppleGothic, sans-serif;
+    color: #353535;
+    padding: 11px 21px;
+    margin: 0;
+    border-bottom: 1px solid #e9e9e9;
+    background: #f6f6f6;
+}
+
+#h3 {
+    font: 0.75em Verdana, Dotum, AppleGothic, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    color: #000;
+}
+
+#desc {
+    font: 0.75em Verdana, Dotum, AppleGothic, sans-serif;
+    padding: 0 0 0 4px;
+    font-weight: normal;
+    font-size: 11px;
+    color: #8f8f8f;
+}
+
+#em {
+    font: 0.75em Verdana, Dotum, AppleGothic, sans-serif;
+    font-weight: normal;
+    font-size: 11px;
+    color: #008bcc;
+    font-style: normal;
+}
+
+#state {
+    font: 0.75em Verdana, Dotum, AppleGothic, sans-serif;
+    color: #353535;
+    margin: 0;
+    overflow: hidden;
+    padding: 19px 0;
+}
+
+#order {
+    font: 0.75em Verdana, Dotum, AppleGothic, sans-serif;
+    color: #353535;
+    margin: 0;
+    padding: 0;
+    float: left;
+    width: 80%;
+}
+
+#order li {
+    font: 0.75em Verdana, Dotum, AppleGothic, sans-serif;
+    color: #353535;
+    list-style: none;
+    float: left;
+    width: 25%;
+    padding: 0 0 4px;
+    margin: 0 -1px 0 0;
+    border-right: 1px dotted #c9c7ca;
+    text-align: center;
+}
+
+#order li strong {
+    font: 0.75em Verdana, Dotum, AppleGothic, sans-serif;
+    list-style: none;
+    text-align: center;
+    display: block;
+    margin: 2px 0 7px;
+    font-size: 14px;
+    color: #353535;
+}
+
+#order li strong a {
+    font: 0.75em Verdana, Dotum, AppleGothic, sans-serif;
+    list-style: none;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 24px;
+    color: #008bcc;
+}
+
+#order li a span {
+    font: 0.75em Verdana, Dotum, AppleGothic, sans-serif;
+    list-style: none;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    color: #008bcc;
+}
+
+#cs {
+    font: 1em Verdana, Dotum, AppleGothic, sans-serif;
+    color: #353535;
+    margin: 0 auto;
+    padding: 0;
+    float: left;
+    width: 20%;
+}
+
+#cs li {
+    font: 1em Verdana, Dotum, AppleGothic, sans-serif;
+    color: #353535;
+    padding: 0;
+    list-style: none;
+    margin: 0 0 5px 27px;
+    letter-spacing: 0.04em;
+    word-spacing: 4px;
+}
+
+#cs li strong{
+    font: 1em Verdana, Dotum, AppleGothic, sans-serif;
+    list-style: none;
+    letter-spacing: 0.04em;
+    word-spacing: 4px;
+    font-weight: normal;
+    font-size: 12px;
+    color: #353535;
+}
+
+#sc li strong a{
+    font: 2em Verdana,Dotum,AppleGothic,sans-serif;
+    list-style: none;
+    letter-spacing: 0.04em;
+    word-spacing: 4px;
+    text-decoration: none;
+    padding: 0 0 0 4px;
+    font-weight: bold;
+    color: #008bcc;
+}
+
+#cs li a span {
+    font: 2.4em Verdana, Dotum, AppleGothic, sans-serif;
+    list-style: none;
+    letter-spacing: 0.04em;
+    word-spacing: 4px;
+    font-weight: bold;
+    color: #008bcc;
+}
+
+
+#myshopMain {
+    margin: 20px auto;
+    border-top: 3px solid #333;
+    border-bottom: 3px solid #333;
+
+    font: 0.75em Verdana,Dotum,AppleGothic,sans-serif;
+    color: #353535;
+    padding: 0;
+}
+
+#myshopMain .shopMain {
+    height: 90px;
+    padding: 27px 0 0 5px;
+    border-bottom: 1px solid #e9e9e9;
+    /*background: url("//img.echosting.cafe24.com/skin/base/myshop/bg_myshop1.gif") no-repeat 100% 0;*/
+
+}
+
+#myshopMain .shopMain h3 {
+    padding: 0 0 5px;
+    font-size: 12px;
+    color: #333;
+    font-weight: normal;
+
+    /*font: 0.75em Verdana,Dotum,AppleGothic,sans-serif;*/
+    margin: 0;
+
+}
+
+#myshopMain .shopMain h3 strong {
+    font-size: 18px;
+    padding: 0 8px 0 0;
+
+    /*font: 0.75em Verdana,Dotum,AppleGothic,sans-serif;*/
+    color: #000;
+}
+
+#myshopMain .shopMain h3 a:hover {
+    text-decoration: none;
+
+    font: 0.75em Verdana,Dotum,AppleGothic,sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    color: #000;
+
+}
+
+#myshopMain .shopMain p a {
+    font-size: 12px;
+    line-height: 18px;
+    color: #8f8f8f;
+
+    /*font: 0.75em Verdana,Dotum,AppleGothic,sans-serif;*/
+    text-decoration: none;
+}
+
+/*#myshopMain .shopMain.order {*/
+/*    background-image: url("//img.echosting.cafe24.com/skin/base/myshop/bg_myshop1.gif");*/
+/*}*/
+
+/*#myshopMain .shopMain.profile {*/
+/*    background-image: url("//img.echosting.cafe24.com/skin/base/myshop/bg_myshop2.gif");*/
+/*}*/
+
+/*#myshopMain .shopMain.wishlist {*/
+/*    background-image: url("//img.echosting.cafe24.com/skin/base/myshop/bg_myshop3.gif");*/
+/*}*/
+
+/*#myshopMain .shopMain.mileage {*/
+/*    background-image: url("//img.echosting.cafe24.com/skin/base/myshop/bg_myshop4.gif");*/
+/*}*/
+
+/*#myshopMain .shopMain.deposits {*/
+/*    background-image: url("//img.echosting.cafe24.com/skin/base/myshop/bg_myshop9.gif");*/
+/*}*/
+
+/*#myshopMain .shopMain.consult {*/
+/*    background-image: url("//img.echosting.cafe24.com/skin/base/myshop/bg_myshop5.gif");*/
+/*}*/
+
+/*#myshopMain .shopMain.coupon {*/
+/*    background-image: url("//img.echosting.cafe24.com/skin/base/myshop/bg_myshop6.gif");*/
+/*}*/
+
+/*#myshopMain .shopMain.board {*/
+/*    background-image: url("//img.echosting.cafe24.com/skin/base/myshop/bg_myshop7.gif");*/
+/*}*/
+
+/*#myshopMain .shopMain.address {*/
+/*    background-image: url("//img.echosting.cafe24.com/skin/base/myshop/bg_myshop8.gif");*/
+/*}*/
+
+/*#myshopMain .shopMain.inquiry {*/
+/*    background-image: url("//img.echosting.cafe24.com/skin/base/myshop/bg_myshop10.gif");*/
+/*}*/
+
+/*#myshopMain .shopMain.likeIt {*/
+/*    background-image: url("//img.echosting.cafe24.com/skin/base/myshop/bg_myshop11.gif");*/
+/*}*/
+
+

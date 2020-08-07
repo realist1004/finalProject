@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="fragments/head :: head">
+</head>
+
+<link rel="stylesheet" href="../css/bootstrap.css">
+<link rel="stylesheet" href="../css/font-awesome.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/easy-responsive-tabs.css">
+
+<link rel="stylesheet" href="../css/profile.css">
+
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<body>
+
+<div th:include="fragments/bodyHeader :: bodyHeader"></div>
+
+<div id="wrap">
+    <div id="container">
+        <div id="content">
+            <div class="titleArea">
+                <h2>회원정보 수정</h2>
+                <p>회원님의 정보를 수정할 수 있습니다.</p>
+            </div>
+
+            <div class="table-responsive ec-base-table typeWrite">
+                <form action="/profile/update" method="post">
+                    <table class="table table-bordered">
+                        <caption>회원정보 수정</caption>
+                        <colgroup>
+                            <col style="width:120px">
+                            <col style="width:auto">
+                        </colgroup>
+
+
+                        <tbody>
+                        <tr>
+                            <th scope="row">이름</th>
+                            <td>
+                                <!--<input id="ma_rcv_title" name="name" fw-filter="isFill&amp;isMaxByte[90]"
+                                       fw-label="이름" fw-msg="" class="inputTypeText" placeholder=""
+                                       th:value="${session.loginUser.name}" type="text" style="border: none">-->
+                                <p th:text="${session.loginUser.name}"></p>
+
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">아이디</th>
+                            <td>
+
+                                <p th:text="${session.loginUser.id}"></p>
+                            </td>
+                        </tr>
+
+
+                        <th scope="row">휴대전화</th>
+                        <td>
+                            <p th:if="${session.loginUser.phone}" th:text="${session.loginUser.phone}"></p>
+                            <p th:if="!${session.loginUser.phone}" th:text="${session.loginUser.phone}"></p>
+
+
+                        </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">계정정보
+
+                            </th>
+                            <td>
+                                <!--<input id="ma_rcv_name" name="email" fw-filter="isFill&amp;isMaxByte[90]"
+                                       fw-label="아이디" fw-msg="" class="ec-member-name" placeholder=""
+                                       th:value="${session.loginUser.id}" readonly type="text">-->
+                                <p th:if="${session.loginUser.sort}" th:text="${session.loginUser.sort}" th:name="sort"></p>
+
+                            </td>
+                        </tr>
+                        <tr class="right">
+                            <td colspan="2">
+                                <input type="submit" class="btn btn-primary btn-xs" value="수정하기"/>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </form>
+                <a href="javascript:window.history.back();">
+                    <img src="//img.echosting.cafe24.com/skin/base_ko_KR/order/btn_prev.gif" alt="이전페이지">
+                </a>
+
+            </div>
+            <div id="aa">
+                <h3><strong>회원정보 수정 유의사항</strong></h3>
+                <div class="inner">
+                    <ol>
+                        <li class="item1">해당 사이트로 회원가입하신 계정의 경우 휴대폰, 비밀번호, 이름을 변경하실수 있습니다.
+                        </li>
+                        <li class="item2">연동 로그인을 하신 계정은 아이디 또는 비밀번호를 변경할수 없습니다.
+                        </li>
+                        <li class="item3">변경을 원하시는 경우 해당 사이트에 로그인하여 카카오 또는 네이버의 해당사이트에 로그인하여 정보를 변경하셔야 합니다.</li>
+                        <li class="item4">외에 문의사항은 info@example.com 또는 Call : 01234567898로 연락주시기 바랍니다.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

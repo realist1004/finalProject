@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="fragments/head :: head">
+</head>
+
+<link rel="stylesheet" href="../css/bootstrap.css">
+<link rel="stylesheet" href="../css/font-awesome.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/easy-responsive-tabs.css">
+<link rel="stylesheet" href="../css/address.css">
+<body>
+
+<!-- header -->
+<div class="header" id="home">
+    <div class="container">
+        <ul>
+            <li><a href="#" data-toggle="modal" data-target="#myModal" id="signBtn">
+                <i class="fa fa-unlock-alt" aria-hidden="true"></i>Sign In</a></li>
+            <li><a href="/admin/main"><i class="fa fa-bar-chart" aria-hidden="true"></i> 관리자 </a></li>
+            <li><a href="/myPage"><i class="fa fa-bar-chart" aria-hidden="true"></i> 마이페이지 </a></li>
+            <li><a href="#" data-toggle="modal" data-target="#myModal2" id="modal2_btn">
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Sign Up </a></li>
+            <li><i class="fa fa-phone" aria-hidden="true"></i> Call : 01020361296</li>
+            <li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a
+                    href="mailto:info@example.com">info@example.com</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- 주문처리 현황 -->
+<div id="wrap">
+    <div id="container">
+        <div id="content">
+            <div class="titleArea">
+                <h2>배송 주소록 관리</h2>
+                <br>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr class="d-flex">
+                        <th class="col-sm-1">No.</th>
+                        <th class="col-sm-2">배송지명</th>
+                        <th class="col-sm-8">주 소</th>
+                        <th class="col-sm-1">수 정</th>
+                    </tr>
+                    </thead>
+                    <tbody><!--${address?.member?.num == session?.loginUser.num} && -->
+            <th:block th:if="${session.loginUser.getAddrs() != null}" >
+                    <tr class="d-flex" th:each="list:${list}"><!--th:if="${address?.basicAdd != null && address?.member?.num == session?.loginUser.num}"-->
+                        <td th:text="${list.getAddCode()}"></td>
+                        <td th:text="${list.getAddName()}"></td>
+                        <td ><p th:text="${list.getBasicAdd()}"/>
+                            <p th:text="${list.getDetailAdd()+list.getExtraAdd()}"/>
+                        </td>
+                        <td>
+                            <!--<input type="button" onclick="" class="btn btn-sm btn-primary" value="삭 제">-->
+                            <input type="button" class="btn btn-sm btn-danger" value="삭 제"
+                            th:onclick="|javascript:addrDelete('${list.getNum()}')|">
+                        </td>
+                    </tr>
+            </th:block><!--th:if="${address?.member != null}"-->
+            <th:block th:if="${session.loginUser.getAddrs() == null}">
+                <tr class="d-flex">
+                    <td colspan="4"><p>등록된 주소록이 없습니다.</p></td>
+
+                </tr>
+            </th:block>
+                    <script>
+                        function addrDelete(num) {
+                            alert(num+"을 삭제해주세요~!")
+                            $.ajax({
+                                type: "post",
+                                url: "/address/delete",
+                                data: {addr_num: num},
+                                datatype: "text",
+                                success: function (data) {
+                                    console.log(data)
+                                    alert("선택하신 주소가 삭제 되었습니다.")
+                                    window.location.reload();
+                                }, error: function () {
+                                    alert("data error")
+                                }
+                            })
+                        }
+                    </script>
+
+
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 버튼 -->
+            <div id="bb">
+                    <span class="gLeft displaynone">
+                        <a href="#none" onclick="myshopAddr.deleteAddress(); return false;">
+                            <img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_address_delete.gif"
+                                 alt="선택 주소록 삭제">
+                        </a>
+                    </span>
+
+                <span id="gRight">
+                        <a href="/myPage/register">
+                            <img src="//img.echosting.cafe24.com/skin/base_ko_KR/myshop/btn_address_register.gif"
+                                 alt="배송지 등록">
+                        </a>
+                    </span>
+            </div>
+
+            <br>
+            <div id="aa">
+                <h3><strong>배송주소록 유의사항</strong></h3>
+                <div class="inner">
+                    <ol>
+                        <li class="item1">배송 주소록은 최대 10개까지 등록할 수 있으며, 별도로 등록하지 않을 경우 최근 배송 주소록 기준으로 자동 업데이트 됩니다.
+                        </li>
+                        <li class="item2">자동 업데이트를 원하지 않을 경우 주소록 고정 선택을 선택하시면 선택된 주소록은 업데이트 대상에서 제외됩니다.</li>
+                        <li class="item3">기본 배송지는 1개만 저장됩니다. 다른 배송지를 기본 배송지로 설정하시면 기본 배송지가 변경됩니다.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<th:block th:replace="fragments/footer :: footer"></th:block>
+
+<script src="../static/js/header.js"></script>
+</body>
+</html>

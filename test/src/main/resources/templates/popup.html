@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script language="JavaScript">
+        function setCookie(name, value, expiredays) {
+            var date = new Date();
+            date.setDate(date.getDate() + expiredays);
+            document.cookie = escape(name) + "=" + escape(value);
+
+            // + "; expires=" + date.toUTCString()
+        }
+
+        function closePopup() {
+            if (document.getElementById("check").value) {
+                setCookie("popupYN", "N", 1);
+                self.close();
+            }
+        }
+    </script>
+</head>
+<body>
+<a href="http://211.238.142.91:8282/gudok" target="_blank">
+    <img src="/images/3.png" height="705" width="470"/></a>
+<br>
+<input type="checkbox" id="check" onclick="closePopup();">오늘 하루동안 열지 않기</label>
+<input type="checkbox" onclick="window.close();">닫기</label>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:include="fragments/head :: head">
+</head>
+
+<link rel="stylesheet" href="../css/bootstrap.css">
+<link rel="stylesheet" href="../css/font-awesome.css">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/easy-responsive-tabs.css">
+
+<link rel="stylesheet" href="../css/profile.css">
+
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<body>
+
+<div th:include="fragments/bodyHeader :: bodyHeader"></div>
+
+<div id="wrap">
+    <div id="container">
+        <div id="content">
+            <div class="titleArea">
+                <h2>회원정보 수정</h2>
+                <p>회원님의 정보를 수정할 수 있습니다.</p>
+            </div>
+
+            <div class="table-responsive ec-base-table typeWrite">
+                <form action="/profile/updateBasic" method="post">
+                <table class="table table-bordered">
+                    <caption>회원정보 수정</caption>
+                    <colgroup>
+                        <col style="width:120px">
+                        <col style="width:auto">
+                    </colgroup>
+
+
+                        <tbody>
+                        <tr>
+                            <th scope="row">이름
+                                <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수">
+                            </th>
+                            <td>
+                                <input id="ma_rcv_title" name="name" fw-filter="isFill&amp;isMaxByte[90]"
+                                       fw-label="이름" fw-msg="" class="inputTypeText" placeholder=""
+                                       th:value="${session.loginUser.name}" type="text">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row">아이디
+                                <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수">
+                            </th>
+                            <td>
+                                <input id="ma_rcv_name" name="email" fw-filter="isFill&amp;isMaxByte[90]"
+                                       fw-label="아이디" fw-msg="" class="ec-member-name" placeholder=""
+                                       th:value="${session.loginUser.id}" readonly type="text">
+                            </td>
+                        </tr>
+
+                        <th scope="row">휴대전화 <span class=""><img
+                                src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수"></span>
+                        </th>
+                        <td><select id="ma_rcv_mobile_no1" name="phone" fw-filter="isNumber&amp;isFill"
+                                    fw-label="휴대전화" fw-alone="N" fw-msg="">
+                            <option value="010">010</option>
+                            <option value="011">011</option>
+                            <option value="016">016</option>
+                            <option value="017">017</option>
+                            <option value="018">018</option>
+                            <option value="019">019</option>
+                        </select>-<input id="ma_rcv_mobile_no2" name="phone2" maxlength="4"
+                                         fw-filter="isNumber&amp;isFill" fw-label="휴대전화" fw-alone="N" fw-msg="" value=""
+                                         type="text">-<input id="ma_rcv_mobile_no3" name="phone3"
+                                                             maxlength="4" fw-filter="isNumber&amp;isFill"
+                                                             fw-label="휴대전화" fw-alone="N" fw-msg="" value=""
+                                                             type="text"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">생년월일</th>
+
+                            <td>
+                                <script language="JavaScript">
+                                    window.onload = function () {
+                                        var sYear = 1980
+                                        var eYear = 2020
+                                        var sMonth = 1
+                                        var eMonth = 12
+                                        var sDay = 1
+                                        var eDay = 31
+
+                                        var strYear = "";
+                                        var strMonth = "";
+                                        var strDay = "";
+
+                                        for(var i=sYear; i<=eYear; i++){
+                                            strYear +="<option value="+i+">"+i+"</option>";
+                                        }
+
+                                        for(var i=sMonth; i<=eMonth; i++){
+                                            strMonth +="<option value="+i+">"+i+"</option>";
+                                        }
+
+                                        for(var i=sDay; i<=eDay; i++){
+                                            strDay +="<option value="+i+">"+i+"</option>";
+                                        }
+
+                                        document.getElementById("year").innerHTML = strYear
+                                        document.getElementById("month").innerHTML = strMonth
+                                        document.getElementById("day").innerHTML = strDay
+                                    }
+                                </script>
+                                <select id="year" name="year"></select>
+                                <select id="month" name="month"></select>
+                                <select id="day" name="day"></select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">패스워드
+                                <img src="//img.echosting.cafe24.com/skin/base/common/ico_required.gif" alt="필수">
+                            </th>
+                            <td>
+                                <input  name="password" fw-filter="isFill&amp;isMaxByte[90]"
+                                        fw-label="패스워드" fw-msg="" class="ec-member-name" placeholder="" type="text">
+                            </td>
+                        </tr>
+                        <tr class="right">
+                            <td colspan="2">
+                                <input type="submit" class="btn btn-primary btn-xs" value="등록"/>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                </form>
+
+            </div>
+
+
+
+            <div id="aa">
+                <h3><strong>배송주소록 유의사항</strong></h3>
+                <div class="inner">
+                    <ol>
+                        <li class="item1">해당 사이트로 회원가입하신 계정의 경우 휴대폰, 비밀번호, 이름을 변경하실수 있습니다.
+                        </li>
+                        <li class="item2">외에 문의사항은 info@example.com 또는 Call : 01234567898로 연락주시기 바랍니다.</li>
+
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
